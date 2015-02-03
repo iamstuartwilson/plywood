@@ -1,0 +1,17 @@
+{
+  "name": "plywood",
+  "version": "0.0.1",
+  "description": "Node logging utility",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/jasmine-node tests/plywood.spec.js"
+  },
+  "author": "Stuart Wilson <@iamstuartwilson>",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^0.5.1"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}
