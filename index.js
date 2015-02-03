@@ -61,6 +61,11 @@ var plywood = function(settings) {
                 output = a.colors[color](output);
             }
 
+            if (loopCount > 0 && ! inline) {
+                a.logger.write('\n');
+                stopLoop();
+            }
+
             a.logger.write(output);
 
             if (! inline) {
