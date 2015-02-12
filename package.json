@@ -4,7 +4,7 @@
   "description": "Node logging utility",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/jasmine-node tests/plywood.spec.js"
+    "test": "node_modules/.bin/jasmine-node tests/plywood.spec.js --verbose"
   },
   "author": "Stuart Wilson <@iamstuartwilson>",
   "license": "MIT",

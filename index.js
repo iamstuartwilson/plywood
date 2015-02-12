@@ -13,7 +13,7 @@ var plywood = function(settings) {
     var standardMethods = {
         log: 'white',
         error: 'red',
-        info: 'blue'
+        info: 'green'
     };
 
     // Interval id
@@ -30,7 +30,7 @@ var plywood = function(settings) {
             pre = a.options.prefix;
         }
 
-        if (typeof pre === 'string') {
+        if (typeof pre === 'string'  && pre !== '') {
             if (a.colors[color]) {
                 return a.colors[color](pre + ' ') + val;
             }
@@ -78,6 +78,18 @@ var plywood = function(settings) {
 
     function inline(val, prefix) {
         return log(false, prefix, true).apply(this, [val]);
+    }
+
+    function block(arr) {
+        for (var i = 0; i < arr.length; i ++) {
+            var line = arr[i];
+
+            if (typeof line === 'string') {
+                line = [line];
+            }
+
+            log(false, false).apply(this, line);
+        }
     }
 
     // End the output, stop interval and apply callback
@@ -170,7 +182,7 @@ var plywood = function(settings) {
 
     // Set an option
     function setOption(option, value) {
-        if (option && value) {
+        if (option && typeof value !== 'undefined') {
             return a.options[option] = value;
         }
 
@@ -212,6 +224,7 @@ var plywood = function(settings) {
         a.end = end;
         a.loop = loop;
         a.set = setOption;
+        a.block = block;
 
         return a;
     }

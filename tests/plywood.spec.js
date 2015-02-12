@@ -4,11 +4,11 @@ var plywood = require('../')({
 
 // Mocking console
 var mockLogger = {
-    stream: '',
+    stream: [],
     write: function(val) {
-        this.stream += val;
+        this.stream.push(val);
 
-        return this.stream;
+        return this.stream.slice(-1);
     }
 }
 
@@ -34,7 +34,7 @@ describe('Testing plywood', function() {
     });
 
     // Test inline method
-    it('should return a new prefixed message', function() {
+    it('should return a single line', function() {
         expect(plywood.inline('foo', false)).toBe('foo');
         expect(plywood.inline('bar', false)).toBe('bar');
     });
